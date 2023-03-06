@@ -7,7 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Memory Tiles" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center" FontStyle="Italic"/>
+        <TextBlock Text="Memory Tiles" FontSize="40" FontStyle="Italic"
+                   VerticalAlignment="Top" HorizontalAlignment="Center" />
+
+        <Button Name="bNewUser" Width="75" Height="50" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Left" 
+                Content="New User" FontSize="13" Click="bNewUser_Click"/>
+        
+        <Button Name="bDeleteUser" Width="75" Height="50" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+                Content="Delete User" FontSize="13" Click="bDeleteUser_Click"/> 
+        
+        <Button Name="bPlay" Width="75" Height="50" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                Content="Play" FontSize="13" Click="bPlay_Click"/>
+        
+        <Button Name="bExit" Width="75" Height="50" 
+                VerticalAlignment="Top" HorizontalAlignment="Right" 
+                Content="Exit" FontSize="13" Click="bExit_Click"/>
 
     </Grid>
 </Window>
