@@ -7,24 +7,53 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Memory Tiles" FontSize="40" FontStyle="Italic"
-                   VerticalAlignment="Top" HorizontalAlignment="Center" />
+        <ListView
+            Margin="60,10,0,13" Name="profilesViewList" HorizontalAlignment="Left" VerticalAlignment="Center" Width="194" Height="200">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <Image Source="{Binding AvatarDestination}" Width="20" Height="20"/>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        <Button Name="bNewUser" Width="75" Height="50" 
+        <TextBlock Text="Choose Avatar for new user " HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,90,85,0"
+                   FontSize="13" FontWeight="DemiBold"/>
+        <ListView
+            Margin="0,10,60,0" Name="imageViewList" HorizontalAlignment="Right" VerticalAlignment="Center" Width="194" Height="200">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <Image Source="{Binding}" Width="60" Height="60"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <TextBlock Text="Memory Tiles" FontSize="40" FontStyle="Italic" FontWeight="Bold"
+                   VerticalAlignment="Top" HorizontalAlignment="Center" />
+        
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="60,80,0,0" 
+                 Name="textBox1" VerticalAlignment="Top" Width="127" />
+        
+        <Button Name="bNewUser" Width="100" Height="23" Margin="200,80,0,0"
+                VerticalAlignment="Top" HorizontalAlignment="Left" 
+                Content="Add new User" FontSize="13" Click="BNewUser_Click"/>
+
+        <Button Name="bDeleteUser" Width="75" Height="23" Margin="60,260,0,20"
+                VerticalAlignment="Center" HorizontalAlignment="Left" 
+                Content="Delete User" FontSize="13" Click="BDeleteUser_Click"/>
+
+        <Button Name="bPlay" Width="75" Height="23" Margin="180,260,0,20"
+                VerticalAlignment="Center" HorizontalAlignment="Left" 
+                Content="Play" FontSize="13" Click="BPlay_Click"/>
+
+        <Button Name="bExit" Width="75" Height="23" Margin="60,260,0,40"
                 VerticalAlignment="Bottom" HorizontalAlignment="Left" 
-                Content="New User" FontSize="13" Click="bNewUser_Click"/>
-        
-        <Button Name="bDeleteUser" Width="75" Height="50" 
-                VerticalAlignment="Bottom" HorizontalAlignment="Center" 
-                Content="Delete User" FontSize="13" Click="bDeleteUser_Click"/> 
-        
-        <Button Name="bPlay" Width="75" Height="50" 
-                VerticalAlignment="Bottom" HorizontalAlignment="Right" 
-                Content="Play" FontSize="13" Click="bPlay_Click"/>
-        
-        <Button Name="bExit" Width="75" Height="50" 
-                VerticalAlignment="Top" HorizontalAlignment="Right" 
-                Content="Exit" FontSize="13" Click="bExit_Click"/>
+                Content="Exit" FontSize="13" Click="BExit_Click"/>
 
     </Grid>
 </Window>
