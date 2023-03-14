@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Memory_Tiles_Game"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="600" Background="#FF9EAEB5">
     <Grid>
         <ListView
-            Margin="60,10,0,13" Name="profilesViewList" HorizontalAlignment="Left" VerticalAlignment="Center" Width="194" Height="200">
+            Margin="60,116,0,0" BorderThickness="2" Name="profilesViewList" HorizontalAlignment="Left" VerticalAlignment="Top" Width="194" Height="200" Grid.RowSpan="2" BorderBrush="#FF154FBB" FontSize="14">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
-                        <Image Source="{Binding AvatarDestination}" Width="20" Height="20"/>
-                        <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                        <Image Source="{Binding AvatarDestination}" Width="40" Height="40"/>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="18" Foreground="#FF154FBB" />
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
         <TextBlock Text="Choose Avatar for new user " HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,90,85,0"
-                   FontSize="13" FontWeight="DemiBold"/>
+                   FontSize="13" FontWeight="DemiBold" Grid.RowSpan="2"/>
         <ListView
-            Margin="0,10,60,0" Name="imageViewList" HorizontalAlignment="Right" VerticalAlignment="Center" Width="194" Height="200">
+            Margin="0,122,130,0" Name="imageViewList" BorderThickness="2" HorizontalAlignment="Right" VerticalAlignment="Top" Width="93" Height="200"  BorderBrush="#FF154FBB">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -34,26 +34,53 @@
 
 
         <TextBlock Text="Memory Tiles" FontSize="40" FontStyle="Italic" FontWeight="Bold"
-                   VerticalAlignment="Top" HorizontalAlignment="Center" />
-        
+                   VerticalAlignment="Top" HorizontalAlignment="Center" Grid.RowSpan="2" FontFamily="Algerian" Foreground="#FF154FBB" />
+
         <TextBox Height="23" HorizontalAlignment="Left" Margin="60,80,0,0" 
-                 Name="textBox1" VerticalAlignment="Top" Width="127" />
-        
+                 Name="textBox1" VerticalAlignment="Top" Width="127" Grid.RowSpan="2" BorderThickness="2" BorderBrush="#FF154FBB"/>
+
         <Button Name="bNewUser" Width="100" Height="23" Margin="200,80,0,0"
                 VerticalAlignment="Top" HorizontalAlignment="Left" 
-                Content="Add new User" FontSize="13" Click="BNewUser_Click"/>
+                Content="Add new User" FontSize="13" Click="BNewUser_Click" Grid.RowSpan="2"/>
 
-        <Button Name="bDeleteUser" Width="75" Height="23" Margin="60,260,0,20"
-                VerticalAlignment="Center" HorizontalAlignment="Left" 
-                Content="Delete User" FontSize="13" Click="BDeleteUser_Click"/>
+        <Button Name="bDeleteUser" Width="75" Height="23" Margin="60,326,0,0"
+                VerticalAlignment="Top" HorizontalAlignment="Left" 
+                Content="Delete User" FontSize="13" Click="BDeleteUser_Click" Grid.RowSpan="2"/>
 
-        <Button Name="bPlay" Width="75" Height="23" Margin="180,260,0,20"
-                VerticalAlignment="Center" HorizontalAlignment="Left" 
-                Content="Play" FontSize="13" Click="BPlay_Click"/>
+        <Button Name="bPlay" Width="75" Height="23" Margin="180,326,0,0"
+                VerticalAlignment="Top" HorizontalAlignment="Left" 
+                Content="Play" FontSize="13" Click="BPlay_Click" Grid.RowSpan="2"/>
 
-        <Button Name="bExit" Width="75" Height="23" Margin="60,260,0,40"
+        <Button Name="bExit" Width="75" Height="23" Margin="60,0,0,40"
                 VerticalAlignment="Bottom" HorizontalAlignment="Left" 
-                Content="Exit" FontSize="13" Click="BExit_Click"/>
+                Content="Exit" FontSize="13" Click="BExit_Click" Grid.RowSpan="2"/>
 
+        <Grid x:Name="Output" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">
+                <Border Background="DimGray"
+                BorderThickness="2" Width="300" Height="100">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <TextBlock Text="Please choose a user before playing" 
+                                   FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                                   Foreground="DarkRed" FontWeight="Bold"/>
+                        <Button Content="OK" Click="ClosePopupClicked" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </Border>
+            </Popup>
+        </Grid>
+
+        <Grid x:Name="Output2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="SameNamePopup">
+                <Border Background="DimGray"
+                BorderThickness="2" Width="300" Height="100">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <TextBlock Text="Invalid username" 
+                                   FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                                   Foreground="DarkRed" FontWeight="Bold"/>
+                        <Button Content="OK" Click="SameNamePopup_Closed" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </Border>
+            </Popup>
+        </Grid>
     </Grid>
 </Window>

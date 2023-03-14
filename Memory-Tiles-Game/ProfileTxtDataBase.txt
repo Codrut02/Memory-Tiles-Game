@@ -1,1 +1,3 @@
-username C:\Users\codru.LAPTOP-F7RR2UR3\Documents\Memory-Tiles-Game\Avatars\mouse.png
+george C:\Users\codru.LAPTOP-F7RR2UR3\Documents\Memory-Tiles-Game\Avatars\pig.png
+codrut C:\Users\codru.LAPTOP-F7RR2UR3\Documents\Memory-Tiles-Game\Avatars\cat.png
+cosmin C:\Users\codru.LAPTOP-F7RR2UR3\Documents\Memory-Tiles-Game\Avatars\cow.png
