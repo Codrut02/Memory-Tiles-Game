@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Shapes;
 
 namespace Memory_Tiles_Game
 {
@@ -12,6 +15,7 @@ namespace Memory_Tiles_Game
         public MainWindow()
         {
             InitializeComponent();
+            readProfilesFromFile();
             profilesViewList.ItemsSource = Profiles;
             imageViewList.ItemsSource = AvatarCollection;
         }
@@ -30,16 +34,21 @@ namespace Memory_Tiles_Game
             "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\tiger.png"
         };
 
-        private ObservableCollection<Profile> Profiles { get; set; } = new ObservableCollection<Profile>
-        {
-            new Profile("Gigi", "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\bull.png"),
-            new Profile("Codrut", "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\cat.png"),
-            new Profile("mara", "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\cow.png"),
-            new Profile("George", "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\pig.png"),
-            new Profile("susu", "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\tiger.png")
-        };
+        private ObservableCollection<Profile> Profiles { get; set; } = new();
 
-        private void BNewUser_Click(object sender, RoutedEventArgs e)
+        private void readProfilesFromFile()
+        {
+            var reader = new StreamReader("C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Memory-Tiles-Game\\ProfileTxtDataBase.txt");
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] words = line.Split(new char[] { ' ' });
+                Profiles.Add(new Profile(words[0], words[1]));
+            }
+            reader.Close();
+        }
+
+        private async void BNewUser_Click(object sender, RoutedEventArgs e)
         {
             string avatarPathDestination;
 
@@ -53,11 +62,31 @@ namespace Memory_Tiles_Game
             }
 
             Profiles.Add(new Profile(textBox1.Text, avatarPathDestination));
+            using StreamWriter file = new("C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Memory-Tiles-Game\\ProfileTxtDataBase.txt", append: true);
+            await file.WriteLineAsync(textBox1.Text + " " + avatarPathDestination);
         }
 
         private void BDeleteUser_Click(object sender, RoutedEventArgs e)
         {
-            Profiles.Remove(profilesViewList.SelectedItem as Profile);
+            Profile profileToRemove = profilesViewList.SelectedItem as Profile;
+
+            Profiles.Remove(profileToRemove);
+
+            string line = null;
+            string line_to_delete = profileToRemove.Name + " " + profileToRemove.AvatarDestination;
+            string text = "";
+
+            using StreamReader reader = new("C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Memory-Tiles-Game\\ProfileTxtDataBase.txt");
+            while ((line = reader.ReadLine()) != null)
+            {
+                if (String.Compare(line, line_to_delete) == 0)
+                    continue;
+
+                text += line + '\n';
+            }
+            reader.Close();
+            using StreamWriter writer = new("C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Memory-Tiles-Game\\ProfileTxtDataBase.txt");
+            writer.Write(text);
         }
 
         private void BPlay_Click(object sender, RoutedEventArgs e)
