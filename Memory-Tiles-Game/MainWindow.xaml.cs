@@ -33,7 +33,16 @@ namespace Memory_Tiles_Game
             "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\pig.png",
             "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\racoon.png",
             "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\thingy.png",
-            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\tiger.png"
+            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\rabbit.png",
+            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\horse.png",
+            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\turtle.png",
+            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\monkey.png",
+            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\zebra.png",
+            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\goat.png",
+            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\rhino.png",
+            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\giraffe.png",
+            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\dog.png",
+            "C:\\Users\\codru.LAPTOP-F7RR2UR3\\Documents\\Memory-Tiles-Game\\Avatars\\deer.png"
         };
 
         private void ReadProfilesFromFile()

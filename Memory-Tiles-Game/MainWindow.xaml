@@ -19,10 +19,9 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBlock Text="Choose Avatar for new user " HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,90,85,0"
-                   FontSize="13" FontWeight="DemiBold" Grid.RowSpan="2"/>
+        <TextBlock Text="Choose Avatar for new user " HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,83,81,0" Foreground="#FF154FBB" FontWeight="Bold" FontSize="13" RenderTransformOrigin="0.51,0.619"/>
         <ListView
-            Margin="0,122,130,0" Name="imageViewList" BorderThickness="2" HorizontalAlignment="Right" VerticalAlignment="Top" Width="93" Height="200"  BorderBrush="#FF154FBB">
+            Margin="387,116,0,0" Name="imageViewList" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Height="200"  BorderBrush="#FF154FBB">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -37,7 +36,7 @@
                    VerticalAlignment="Top" HorizontalAlignment="Center" Grid.RowSpan="2" FontFamily="Algerian" Foreground="#FF154FBB" />
 
         <TextBox Height="23" HorizontalAlignment="Left" Margin="60,80,0,0" 
-                 Name="textBox1" VerticalAlignment="Top" Width="127" Grid.RowSpan="2" BorderThickness="2" BorderBrush="#FF154FBB"/>
+                 Name="textBox1" VerticalAlignment="Top" Width="127" Grid.RowSpan="2" BorderThickness="2" BorderBrush="#FF154FBB" Background="White"/>
 
         <Button Name="bNewUser" Width="100" Height="23" Margin="200,80,0,0"
                 VerticalAlignment="Top" HorizontalAlignment="Left" 

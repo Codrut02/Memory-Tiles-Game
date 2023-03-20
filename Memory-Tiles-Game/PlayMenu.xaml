@@ -11,11 +11,28 @@
         <TextBlock Text="Memory Tiles" FontSize="40" FontStyle="Italic" FontWeight="Bold"
                    VerticalAlignment="Top" HorizontalAlignment="Center" Grid.RowSpan="2" FontFamily="Algerian" Foreground="#FF154FBB" />
 
-        <Button Name ="NewGame" Content="New game" Height="50" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,95,0,0"
+        <Button Name ="NewGame" Content="New game" BorderThickness="2" Height="42" Width="66" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,94,0,0" BorderBrush="#FF154FBB" RenderTransformOrigin="0.486,0.596" Click="NewGame_Click"
                 />
-        <Button Name ="CreateGame" Content="Choose game" Height="50" HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Margin="362,95,0,0"
+        
+        <Button Name ="Back" Content="Go back" BorderThickness="2" Height="50" HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Margin="71,283,0,0" RenderTransformOrigin="-1.228,2.904" Click="Back_Click" BorderBrush="#FF154FBB"
                 />
-        <Button Name ="Back" Content="Go back" Height="50" HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Margin="71,283,0,0" RenderTransformOrigin="-1.228,2.904" Click="Back_Click"
-                />
+        <TextBox Name ="rowsBox" HorizontalAlignment="Left" Margin="71,93,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.232,-0.114"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,94,0,0" Text="Rows" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,117,0,0" TextWrapping="Wrap" Text="Columns" VerticalAlignment="Top" RenderTransformOrigin="-0.566,1.973"/>
+        <TextBox Name ="columnsBox" HorizontalAlignment="Left" Margin="71,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+
+        <Grid x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="OutputRowsColumnsError">
+                <Border Background="DimGray"
+                BorderThickness="2" Width="300" Height="100">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <TextBlock Text="Rows or Columns invalid" 
+                                   FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                                   Foreground="DarkRed" FontWeight="Bold"/>
+                        <Button Content="OK" Click="Button_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </Border>
+            </Popup>
+        </Grid>
     </Grid>
 </Window>
