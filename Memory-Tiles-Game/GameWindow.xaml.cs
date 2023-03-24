@@ -49,8 +49,8 @@ namespace Memory_Tiles_Game
                 {
                     int row = i;
                     int col = j;
-                    Button button = new Button();
-                    Image image = new Image();
+                    Button button = new();
+                    Image image = new();
                     image.Source = new BitmapImage(new Uri(GameBoard.BoardMatrix[row, col].ImagePath, UriKind.Absolute));
                     if (!GameBoard.BoardMatrix[row, col].Shown)
                     {
